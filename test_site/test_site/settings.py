@@ -12,9 +12,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+# DIRNAME = os.path.abspath(os.path.dirname(__file__))
+# This file will return a local directory.
+# e.g: '/home/pi/Documents/Django_files/djenv/test_site/test_site'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# This file will return a base directory.
+# e.g: '/home/pi/Documents/Django_files/djenv/test_site'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -31,17 +37,20 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    # apps
+    "pages",
+    "api_backend",
+
+    # dependency
+    "rest_framework",
+
+    # other stuff
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # apps
-    "pages",
-    "api_backend",
-    # dependency
-    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -56,10 +65,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "test_site.urls"
 
+# to add html templates simply add the source into the DIRS array.
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, 'pages/html'),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

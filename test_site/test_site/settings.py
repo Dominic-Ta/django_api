@@ -29,10 +29,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "2a@1!^0z8ossk$q*ha-ouhtz4ke)*0_5ktp01@krx89)9-lptw"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    "raspberrypi",
+    "*",
     ]
 
 

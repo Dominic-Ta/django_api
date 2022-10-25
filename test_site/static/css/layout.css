@@ -324,7 +324,11 @@ ul#nav li.current a { color: #F06000; }
    line-height: 42px;
    border-radius: 3px 0 0 3px;
 }
-
+.sql {
+   width: 60%;
+   -moz-animation: sql 2s ease;
+   -webkit-animation: sql 2s ease;
+}
 .photoshop {
   	width: 60%;
   	-moz-animation: photoshop 2s ease;
@@ -355,7 +359,10 @@ ul#nav li.current a { color: #F06000; }
   	-moz-animation: jquery 2s ease;
   	-webkit-animation: jquery 2s ease;
 }
-
+@-moz-keyframes sql {
+   0%   { width: 0px;  }
+   100% { width: 60%;  }
+}
 @-moz-keyframes photoshop {
   0%   { width: 0px;  }
   100% { width: 60%;  }
@@ -380,7 +387,10 @@ ul#nav li.current a { color: #F06000; }
   0%   { width: 0px;  }
   100% { width: 50%;  }
 }
-
+@-webkit-keyframes sql {
+   0%   { width: 0px;  }
+   100% { width: 60%;  }
+ }
 @-webkit-keyframes photoshop {
   0%   { width: 0px;  }
   100% { width: 60%;  }
@@ -1004,3 +1014,8 @@ footer .social-links li:first-child { margin-left: 0; }
 }
 #go-top a:hover { background-color: #0F9095; }
 
+/* paragraph indenting  */
+/* Not necessary if using other means. This is here for general use.*/
+p.indent {
+   text-indent: 150px;
+}

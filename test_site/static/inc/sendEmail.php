@@ -1,10 +1,10 @@
 ﻿<?php
 
 // Replace this with your own email address
-$siteOwnersEmail = 'user@website.com';
+$siteOwnersEmail = 'martineztadominic@gmail.com';
 
 
-if($_POST) {
+if(isset($_POST['send'])){
 
    $name = trim(stripslashes($_POST['contactName']));
    $email = trim(stripslashes($_POST['contactEmail']));
@@ -40,12 +40,13 @@ if($_POST) {
    // Email Headers
 	$headers = "From: " . $from . "\r\n";
 	$headers .= "Reply-To: ". $email . "\r\n";
+	$headers .= 'X-Mailer: PHP/' . phpversion()
  	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 
    if (!$error) {
-
+		// this is where the magic happens
       ini_set("sendmail_from", $siteOwnersEmail); // for windows server
       $mail = mail($siteOwnersEmail, $subject, $message, $headers);
 

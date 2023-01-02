@@ -39,10 +39,13 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+
     # apps
+    "landing",
     "pages",
     "api_backend",
-
+    
+    
     # dependency
     "rest_framework",
 
@@ -73,6 +76,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
+            os.path.join(BASE_DIR, 'landing/html'),
             os.path.join(BASE_DIR, 'pages/html'),
         ],
         "APP_DIRS": True,

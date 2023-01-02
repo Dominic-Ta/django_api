@@ -19,6 +19,7 @@ from pages.views import home_view
 from api_backend import views
 from django.urls import path, include
 from rest_framework import routers
+from landing.views import  landing_view
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
@@ -29,7 +30,7 @@ router.register(r"users", views.UserViewSet)
 # Additionally, we include login URLs for the browsable API.
 
 urlpatterns = [
-    path("", home_view, name="home"),
-    path("home/", home_view, name="home"),
+    path("", landing_view, name="home"), 
+    path("resume/", home_view, name="resume"),
     path("api-auth/", include("api_backend.urls")),
 ]

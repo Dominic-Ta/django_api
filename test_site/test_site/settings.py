@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     
     # dependency
     "rest_framework",
+    'bootstrap3',
 
     # other stuff
     "django.contrib.admin",

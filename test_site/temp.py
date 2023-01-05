@@ -45,7 +45,7 @@
 
 """
 None of the above adds to the db for somne reason. Leaving as legacy. However to add
-the csv data to the tample simply run
+the csv data to the table simply run
 python3 manage.py db shell
 .tables
 .mode

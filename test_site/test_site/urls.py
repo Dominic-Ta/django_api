@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from pages.views import home_view
+from pages.views import email
 from api_backend import views
 from django.urls import path, include
 from rest_framework import routers
@@ -29,8 +29,9 @@ router.register(r"users", views.UserViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 
+    # path("resume/", home_view, name="resume"),
 urlpatterns = [
     path("", landing_view, name="home"), 
-    path("resume/", home_view, name="resume"),
+    path("resume", email, name="resume"),
     path("api-auth/", include("api_backend.urls")),
 ]

@@ -64,7 +64,7 @@
             <hr />
             <ul class="social">
                <li>
-                  <a href="https://www.linkedin.com/in/dominicmt/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/dominicmt/" target="_blank" rel="noopener noreferrer nofollow">
                      <i class="fa fa-linkedin"></i>
                   </a>
                </li>
@@ -162,8 +162,8 @@
                   <p>
                   My masters thesis was on the properties of dopped and non-dopped graphene. 
                   As this was presented, if you would like to find out more you can always shoot a 
-                  pm or check it out on 
-                  <a href ="https://meetings.aps.org/Meeting/FWS18/Event/338683" target="_blank" rel="noopener noreferrer">google scholar</a>.
+                  pm or check it out on noopener noreferrer
+                  <a href ="https://meetings.aps.org/Meeting/FWS18/Event/338683" target="_blank" rel=" nofollow">google scholar</a>.
                   </p>
 
                </div>
@@ -179,7 +179,7 @@
                   <p>
                   Here at UCR, I spent the majority of my time studying the synthesis of MoS2 and TeS2 via chemical vapour 
                   deposition. You can find many of the co-authored publications I had worked on, on my 
-                  <a href="https://www.linkedin.com/in/dominicmt/" target="_blank" rel="noopener noreferrer">linkedin</a> account.
+                  <a href="https://www.linkedin.com/in/dominicmt/" target="_blank" rel="noopener noreferrer nofollow">linkedin</a> account.
                   </p>
 
                </div>
@@ -699,42 +699,11 @@
             <div class="eight columns">
 
                <!-- form -->
-               <form action="" method="post" id="contactForm" name="contactForm">
-					<fieldset>
+               {% block content %}
 
-                  <div>
-						   <label for="contactName">Name <span class="required">*</span></label>
-						   <input type="text" value="" size="35" id="contactName" name="contactName">
-                  </div>
-
-                  <div>
-						   <label for="contactEmail">Email <span class="required">*</span></label>
-						   <input type="text" value="" size="35" id="contactEmail" name="contactEmail">
-                  </div>
-
-                  <div>
-						   <label for="contactSubject">Subject</label>
-						   <input type="text" value="" size="35" id="contactSubject" name="contactSubject">
-                  </div>
-
-                  <div>
-                     <label for="contactMessage">Message <span class="required">*</span></label>
-                     <textarea cols="50" rows="15" id="contactMessage" name="contactMessage"></textarea>
-                  </div>
-
-                  <div>
-                     <form action="test_site/static/inc/sendEmail.php" method="post">
-                     <button class="submit" name="send">Submit</button>
-                     <span id="image-loader">
-                        <img alt="" src="images/loader.gif">
-                     </span>
-                  </div>
-
-					</fieldset>
-				   </form> <!-- Form End -->
-
+               {% endblock %}
                <!-- contact-warning -->
-               <div id="message-warning"> Error boy</div>
+               <div id="message-warning"> Error, your message was not sent. </div>
                <!-- contact-success -->
 				   <div id="message-success">
                   <i class="fa fa-check"></i>Your message was sent, thank you!<br>
@@ -788,7 +757,7 @@
 
             <ul class="social-links">
                <li>
-                  <a href="https://www.linkedin.com/in/dominicmt/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/dominicmt/" target="_blank" rel="noopener noreferrer nofollow">
                      <i class="fa fa-linkedin"></i>
                   </a>
                </li>

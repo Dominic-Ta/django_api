@@ -1,7 +1,57 @@
 from django.shortcuts import render
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse, HttpResponseRedirect
+from django import forms
+from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
     # return HttpResponse("<h1>Hello World</h1>")
     return render(request, 'resume.html')
+
+def send_email(request):
+    subject = request.POST.get('subject', '')
+    message = request.POST.get('message', '')
+    from_email = request.POST.get('from_email', '')
+    if subject and message and from_email:
+        try:
+            send_mail(subject, message, from_email, ['admin@example.com'])
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        return HttpResponseRedirect('/contact/thanks/')
+    else:
+        # In reality we'd use a form class
+        # to get proper validation errors.
+        return HttpResponse('Make sure all fields are entered and valid.')
+class send_the_email(forms.Form):
+    contact_name = forms.CharField(
+                                    label = "Name")
+    contact_email = forms.EmailField()
+    Subject = forms.CharField(
+                                label="Subject"
+    )
+    contact_Message = forms.CharField(
+                                    widget=forms.Textarea(
+                                        attrs{'cols':'50', 'rows': '15'}
+                                        ),
+                                    label="Message")
+
+def email(request):
+    if request.method == 'GET':
+        form = send_the_email()
+    else:
+        form = send_the_email(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['Subject']
+            from_email = form.cleaned_data['contact_email']
+            message = form.cleaned_data['contact_Message']
+            try:
+                send_mail(subject, message, from_email, ['martineztadominic@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('thanks')
+    return render(request, "html/resume.html", {'form': form})
+
+def thanks(request):
+    return HttpResponse('Thank you for your message.')

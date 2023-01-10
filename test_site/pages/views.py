@@ -21,7 +21,6 @@ class send_the_email(forms.Form):
                                         label="Message")
 
 def email(request):
-    print(request.method + "hello world")
     if request.method == 'GET':
         form = send_the_email()
     else:
@@ -29,7 +28,11 @@ def email(request):
         if form.is_valid():
             subject = form.cleaned_data['Subject']
             from_email = form.cleaned_data['contact_email']
-            message = form.cleaned_data['contact_Message']
+            message = 'subject: ' + subject + '\n' \
+                        + 'message: ' + form.cleaned_data['contact_Message'] \
+                        + '\nsent by: ' + form.cleaned_data['contact_name'] \
+                        + '\ncontact email: ' + form.cleaned_data['contact_email']
+            print(message)
             try:
                 send_mail(subject, message, from_email, ['martineztadominic@gmail.com'])
             except BadHeaderError:
